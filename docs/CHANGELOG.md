@@ -1,13 +1,20 @@
-# CodeTester-IntelliJContainer Changelog
+# IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
+
+- Added README, SECURITY and LICENSE
+- Added Bug Report Issue Template
 
 ### Changed
 
 ### Fixed
 
+- Fixed Renovate configuration
+
 ### Removed
+
 ## [0.0.2]
 
 ### Added
