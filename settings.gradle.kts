@@ -1,1 +1,1 @@
-rootProject.name = "CodeTester-IntelliJContainer"
+rootProject.name = "IntelliJContainer"
