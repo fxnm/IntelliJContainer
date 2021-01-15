@@ -7,6 +7,7 @@
 - Added gradle wrapper
 - Added Changelog
 - Added main build and release workflow
+- Added Renovate Config
 
 ### Changed
 
