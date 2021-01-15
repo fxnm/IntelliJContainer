@@ -4,6 +4,8 @@
 
 ### Added
 
+- Added default-jdk
+
 ### Changed
 
 ### Fixed
