@@ -6,6 +6,7 @@
 
 - Added gradle wrapper
 - Added Changelog
+- Added Renovate Config
 
 ### Changed
 
