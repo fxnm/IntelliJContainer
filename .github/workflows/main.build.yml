@@ -105,10 +105,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # Check out current repository
-      - name: Fetch Sources
-        uses: actions/checkout@v2
-
       # Remove old release drafts by using the curl request for the available releases with draft flag
       - name: Remove Old Release Drafts
         env:
@@ -127,7 +123,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ needs.build.outputs.version }}
-          release_name: Version ${{ needs.build.outputs.version }}
-          body: ${{ needs.build.outputs.changelog }}
+          tag_name: v${{ needs.setUpProperties.outputs.version }}
+          release_name: Version ${{ needs.setUpProperties.outputs.version }}
+          body: ${{ needs.setUpProperties.outputs.changelog }}
           draft: true

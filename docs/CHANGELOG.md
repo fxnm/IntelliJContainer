@@ -12,4 +12,6 @@
 
 ### Fixed
 
+- Fixed wrong workflow name
+
 ### Removed
