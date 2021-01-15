@@ -4,10 +4,40 @@ on:
     types: [ released ]
 
 jobs:
+  setUpProperties:
+    name: Set up properties
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.properties.outputs.version }}
+    steps:
+
+      # Setup Java 11 environment for the next steps
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+
+      # Check out current repository
+      - name: Fetch Sources
+        uses: actions/checkout@v2
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      # Set environment variables
+      - name: Export Properties
+        id: properties
+        shell: bash
+        run: |
+          PROPERTIES="$(./gradlew properties --console=plain -q)"
+          VERSION="$(echo "$PROPERTIES" | grep "^version:" | cut -f2- -d ' ')"
+          echo "::set-output name=version::$VERSION"
+
 
   # Prepare and publish the plugin to the Marketplace repository
   release:
     name: Publish Plugin
+    needs: [ setUpProperties ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,12 +60,14 @@ jobs:
         with:
           file: ./src/Dockerfile
           push: true
-          tags: fxnm/intellij.docker:latest
+          tags: |
+            fxnm/intellij.docker:latest
+            fxnm/intellij.docker:${{ needs.setUpProperties.outputs.version }}
 
   # Patch changelog, commit and push to the current repository
   changelog:
     name: Update Changelog
-    needs: release
+    needs: [ release ]
     runs-on: ubuntu-latest
     steps:
 
