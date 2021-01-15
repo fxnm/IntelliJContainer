@@ -7,7 +7,7 @@ version = pluginVersion
 
 
 plugins {
-    id("org.jetbrains.changelog") version "0.6.2"
+    id("org.jetbrains.changelog") version "1.0.1"
 }
 
 changelog {
