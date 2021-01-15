@@ -1,6 +1,7 @@
 # CodeTester-IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
 
 ### Changed
@@ -8,7 +9,8 @@
 ### Fixed
 
 ### Removed
-## [unspecified]
+
+## [0.0.1]
 
 ### Added
 
@@ -20,7 +22,5 @@
 ### Changed
 
 ### Fixed
-
-- Fixed wrong workflow name
 
 ### Removed
