@@ -1,6 +1,14 @@
 # CodeTester-IntelliJContainer Changelog
 
 ## [Unreleased]
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+## [0.0.2]
 
 ### Added
 
