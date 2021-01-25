@@ -52,7 +52,7 @@ After running these commands IntelliJ IDEA starts without any popup and is avail
 
 ## User
 
-IntelliJ Container comes with JDK 11, gradle 6.8 and XVFB pre-installed.
+IntelliJ Container comes with JDK 11, latest gradle version and XVFB pre-installed.
 
 Fur use add the option `container: fxnm/intellij.docker:latest`. This will select the container and the basic 
 settings are taken from the docker image.

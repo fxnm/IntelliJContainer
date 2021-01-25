@@ -1,13 +1,16 @@
 # IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
 
 ### Changed
 
-### Fixed
+- Extracted Gradle Version from Dockerfile
+- Cleaned Changelog
 
 ### Removed
+
 ## [0.0.3]
 
 ### Added
@@ -15,25 +18,15 @@
 - Added README, SECURITY and LICENSE
 - Added Bug Report Issue Template
 
-### Changed
-
 ### Fixed
 
 - Fixed Renovate configuration
-
-### Removed
 
 ## [0.0.2]
 
 ### Added
 
 - Added default-jdk
-
-### Changed
-
-### Fixed
-
-### Removed
 
 ## [0.0.1]
 
@@ -43,9 +36,3 @@
 - Added Changelog
 - Added main build and release workflow
 - Added Renovate Config
-
-### Changed
-
-### Fixed
-
-### Removed
