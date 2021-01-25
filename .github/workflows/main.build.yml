@@ -79,6 +79,14 @@ jobs:
           echo "::set-output name=changelog::$CHANGELOG"
           echo "::set-output name=gradle_version::$GRADLE_VERSION"
 
+      - name: Print Properties
+        shell: bash
+        run: |
+          echo "Version:" '${{ steps.properties.outputs.version }}'
+          echo "Name:" ${{ steps.properties.outputs.name }}
+          echo "Changelog:" ${{ steps.properties.outputs.changelog }}
+          echo "Version:" ${{ steps.properties.outputs.gradle_version}}
+
 
   # Run Docker Build Process
   build:
