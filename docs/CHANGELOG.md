@@ -9,6 +9,8 @@
 
 ### Changed
 
+- Extracted Gradle Version from Dockerfile
+
 ### Fixed
 
 - Fixed Renovate configuration

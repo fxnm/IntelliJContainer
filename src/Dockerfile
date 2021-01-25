@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 
 
+ARG GRADLE_VERSION=UNKOWN
+
 # Update and upgrade ubuntu
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -33,7 +35,7 @@ RUN apt-get install -y xvfb
 
 # Install gradle
 RUN apt-get install -y wget zip default-jdk
-RUN wget "https://services.gradle.org/distributions/gradle-6.8.1-bin.zip" -O gradle.zip
+RUN wget "https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip" -O gradle.zip
 RUN unzip -d /opt gradle.zip
 RUN rm gradle.zip
-ENV PATH=$PATH:/opt/gradle-6.8.1/bin
+ENV PATH=$PATH:/opt/gradle-$GRADLE_VERSION/bin
