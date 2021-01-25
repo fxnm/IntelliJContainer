@@ -21,35 +21,16 @@ jobs:
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1.0.3
 
-  # Run Docker Build Process
-  build:
-    name: Build
-    needs: gradleValidation
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v1
-
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-
-    - name: Build
-      uses: docker/build-push-action@v2
-      with:
-        file: ./src/Dockerfile
-        push: false
-        tags: fxnm/intellij.docker:latest
-
   # Set up all properties of the pre release step
   setUpProperties:
     name: Set up properties
-    needs: [ build ]
+    needs: [ gradleValidation ]
     runs-on: ubuntu-latest
     outputs:
       name: ${{ steps.properties.outputs.name }}
       version: ${{ steps.properties.outputs.version }}
       changelog: ${{ steps.properties.outputs.changelog }}
+      gradle_version: ${{ steps.properties.outputs.gradle_version }}
     steps:
 
       # Setup Java 11 environment for the next steps
@@ -87,13 +68,42 @@ jobs:
           PROPERTIES="$(./gradlew properties --console=plain -q)"
           VERSION="$(echo "$PROPERTIES" | grep "^version:" | cut -f2- -d ' ')"
           NAME="$(echo "$PROPERTIES" | grep "^pluginName_:" | cut -f2- -d ' ')"
+
           CHANGELOG="$(./gradlew getChangelog --unreleased --no-header --console=plain -q)"
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
+
+          GRADLE="$(./gradlew --version)"
+          GRADLE_VERSION="$(echo "GRADLE" | grep "^Gradle" | cut -f2- -d ' ')"
+
           echo "::set-output name=version::$VERSION"
           echo "::set-output name=name::$NAME"
           echo "::set-output name=changelog::$CHANGELOG"
+          echo "::set-output name=gradle_version::$GRADLE_VERSION"
+
+
+  # Run Docker Build Process
+  build:
+    name: Build
+    needs: [ setUpProperties ]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          file: ./src/Dockerfile
+          push: false
+          tags: fxnm/intellij.docker:latest
+          build-args: |
+            GRADLE_VERSION=${{ needs.setUpProperties.outputs.gradle_version }}
 
 
   # Prepare a draft release for GitHub Releases page for the manual verification
