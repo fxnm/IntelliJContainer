@@ -8,7 +8,6 @@ jobs:
   # Set up all properties of the pre release step
   setUpProperties:
     name: Set up properties
-    needs: [ gradleValidation ]
     runs-on: ubuntu-latest
     outputs:
       name: ${{ steps.properties.outputs.name }}
@@ -68,12 +67,14 @@ jobs:
           echo "::set-output name=changelog::$CHANGELOG"
           echo "::set-output name=gradle_version::$GRADLE_VERSION"
 
+
   # Prepare and publish the plugin to the Marketplace repository
   release:
     name: Publish Plugin
     needs: [ setUpProperties ]
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -99,6 +100,7 @@ jobs:
             fxnm/intellij.docker:${{ needs.setUpProperties.outputs.version }}
           build-args: |
             GRADLE_VERSION=${{ needs.setUpProperties.outputs.gradle_version }}
+
 
   # Patch changelog, commit and push to the current repository
   changelog:
