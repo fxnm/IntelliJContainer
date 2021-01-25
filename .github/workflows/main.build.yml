@@ -72,7 +72,7 @@ jobs:
           CHANGELOG="${CHANGELOG//'%'/'%25'}"
           CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
           CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
-          GRADLE="$(./gradlew --version)"
+          GRADLE="$(./gradlew)"
           GRADLE_VERSION="$(echo "GRADLE" | grep "^Gradle" | cut -f2- -d ' ')"
           echo "::set-output name=version::$VERSION"
           echo "::set-output name=name::$NAME"
