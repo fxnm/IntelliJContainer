@@ -85,7 +85,15 @@ For further example view:
 
 - [CodeTester-IDEA](https://github.com/fxnm/CodeTester-IDEA)
 
-## License
+
+## Development
+
+```
+docker build ./src --build-arg GRADLE_VERSION=1.0.0
+```
+Please use the newest version of gradle.
+
+## License 
 
 This code is released under a MIT License, as specified in the
 accompanying [LICENSE FILE](https://github.com/fxnm/IntelliJContainer/blob/main/LICENSE).
