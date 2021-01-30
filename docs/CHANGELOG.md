@@ -1,13 +1,17 @@
 # IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
+
+- Added Check if Gradle Version is provided
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
 ## [0.0.4]
 
 ### Added

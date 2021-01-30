@@ -1,7 +1,13 @@
 FROM ubuntu:latest
 
 
-ARG GRADLE_VERSION=UNKOWN
+ARG GRADLE_VERSION
+
+# Check if Gradle Version Argument is set
+RUN if ["$GRADLE_VERSION" == ""] ; \
+    then echo Build arg 'GRADLE_VERSION' not set && FAILED ; \
+    fi
+
 
 # Update and upgrade ubuntu
 RUN apt-get update
