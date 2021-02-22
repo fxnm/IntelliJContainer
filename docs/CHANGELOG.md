@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Changed Gradle Version to 6.8.2
+- Changed Gradle Version to 6.8.3
 
 ### Fixed
 
