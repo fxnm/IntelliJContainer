@@ -3,7 +3,9 @@
 ## [Unreleased]
 ### Added
 
-### Changed
+### 
+
+- Updated Java-Setup Action to v2
 
 ### Fixed
 
