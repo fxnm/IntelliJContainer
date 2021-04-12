@@ -1,6 +1,14 @@
 # IntelliJContainer Changelog
 
 ## [Unreleased]
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+## [0.0.6]
 
 ### Added
 
