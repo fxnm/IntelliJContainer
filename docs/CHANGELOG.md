@@ -1,15 +1,19 @@
 # IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
 
-### 
+### Changed
 
 - Updated Java-Setup Action to v2
 
 ### Fixed
 
+- Fixed Changelog Path
+
 ### Removed
+
 ## [0.0.5]
 
 ### Added

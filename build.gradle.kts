@@ -11,7 +11,8 @@ plugins {
 }
 
 changelog {
-    path = "docs/CHANGELOG.md"
+
+    path = "${project.projectDir}/docs/CHANGELOG.md"
     groups = listOf("Added", "Changed", "Fixed", "Removed")
     version = pluginVersion
 }
