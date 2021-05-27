@@ -47,4 +47,4 @@ RUN rm gradle.zip
 ENV PATH=$PATH:/opt/gradle-$GRADLE_VERSION/bin
 
 # Intall curl
-RUN apt-get install curl
+RUN apt-get install -y curl
