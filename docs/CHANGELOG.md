@@ -3,6 +3,14 @@
 ## [Unreleased]
 ### Added
 
+### Changed
+
+### Fixed
+
+### Removed
+## [0.0.7]
+### Added
+
 - Added curl support
 
 ### Changed
