@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Added
 
+- Added curl support
+
 ### Changed
 
 ### Fixed

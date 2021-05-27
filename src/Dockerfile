@@ -45,3 +45,6 @@ RUN wget "https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.z
 RUN unzip -d /opt gradle.zip
 RUN rm gradle.zip
 ENV PATH=$PATH:/opt/gradle-$GRADLE_VERSION/bin
+
+# Intall curl
+RUN apt-get install curl
