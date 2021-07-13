@@ -1,6 +1,7 @@
 # IntelliJContainer Changelog
 
 ## [Unreleased]
+
 ### Added
 
 ### Changed
@@ -17,7 +18,10 @@
 
 ### Fixed
 
+- Fixed Gradle Changelog Plugin
+
 ### Removed
+
 ## [0.0.6]
 
 ### Added

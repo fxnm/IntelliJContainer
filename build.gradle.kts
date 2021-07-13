@@ -1,18 +1,16 @@
-val pluginGroup: String by project
-val pluginName_: String by project
-val pluginVersion: String by project
+fun properties(key: String) = project.findProperty(key).toString()
 
-group = pluginGroup
-version = pluginVersion
+group = properties("group")
+version = properties("version")
 
 
 plugins {
-    id("org.jetbrains.changelog") version "1.1.2"
+    id("org.jetbrains.changelog") version "1.2.0"
 }
 
 changelog {
 
-    path = "${project.projectDir}/docs/CHANGELOG.md"
-    groups = listOf("Added", "Changed", "Fixed", "Removed")
-    version = pluginVersion
+    path.set("${project.projectDir}/docs/CHANGELOG.md")
+    groups.set(listOf("Added", "Changed", "Fixed", "Removed"))
+    version.set(properties("version"))
 }
