@@ -6,7 +6,11 @@
 
 ### Changed
 
+- Changed Gradle Changelog Plugin to Version 1.2.0
+
 ### Fixed
+
+- Fixed Gradle Changelog Plugin
 
 ### Removed
 ## [0.0.7]
@@ -17,8 +21,6 @@
 ### Changed
 
 ### Fixed
-
-- Fixed Gradle Changelog Plugin
 
 ### Removed
 
